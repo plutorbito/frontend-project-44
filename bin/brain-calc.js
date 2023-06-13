@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-const greeting = () => {
-   console.log('brain-calc' + '\n' + 'Welcome to the Brain Games!');
-   let greetingUserName = readlineSync.question('May I have your name? ');
-   console.log('Hi ' + greetingUserName + '!');
-   return greetingUserName;
-}
+// const greeting = () => {
+//    console.log('brain-calc' + '\n' + 'Welcome to the Brain Games!');
+//    let greetingUserName = readlineSync.question('May I have your name? ');
+//    console.log('Hi ' + greetingUserName + '!');
+//    return greetingUserName;
+// }
 
-const userName = greeting();
+// const userName = greeting();
+
+import { userName } from '../src/index.js';
 
 const calcGame = () => {
    for (let i = 0; i < 3; i += 1) {
