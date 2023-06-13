@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import greeting from "../src/cli.js";
 
-greeting();
+const greeting = () => {
+   console.log('node bin/brain-games.js' + '\n' + 'Welcome to the Brain Games!');
+   var greetingUserName = readlineSync.question('May I have your name? ');
+   console.log('Hi ' + greetingUserName + '!');
+   return greetingUserName;
+}
+
+const userName = greeting();
 
 const evenGame = () => {
    for (let i = 0; i < 3; i += 1) {
@@ -20,10 +26,10 @@ const evenGame = () => {
       if (rightAnswer === userAnswer) {
          programReply = console.log('Correct');
       } else {
-         return programReply = console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${greeting.userName}!)`);
+         return programReply = console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!)`);
       }
    }
-   console.log('Congratulations, ' + greeting.userName + '!');
+   console.log('Congratulations, ' + userName + '!');
    
 }
 evenGame()
