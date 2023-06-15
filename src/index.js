@@ -14,14 +14,24 @@ const generateRandomNumber = (max) => {
       return Math.trunc(Math.random() * max) + 1;
     }
 
-
-// Проверка ответа
-const checkAnswer = (userAnswer, rightAnswer) => {
-   if (rightAnswer === userAnswer) {
-      console.log('Correct');
-   } else {
-      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!)`);
+// Логика игры
+const gameLogic = (message, taskAndRightAnswer) => {
+   for (let i = 0; i < 3; i += 1) {
+      console.log(message);
+      const [task, rightAnswer] = taskAndRightAnswer();
+      console.log(task);
+      const userAnswer = readlineSync.question('Your answer: ');
+      if (String(rightAnswer) === String(userAnswer)) {
+         console.log('Correct');
+      } else {
+         console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!)`);
+         return;
+      }
    }
+   console.log(`Congratulations, ${userName}!`);
 }
 
-export { userName, checkAnswer, generateRandomNumber };
+
+
+
+export { userName, gameLogic, generateRandomNumber };

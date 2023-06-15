@@ -1,18 +1,14 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { userName, generateRandomNumber , checkAnswer} from '../src/index.js';
+import { generateRandomNumber, gameLogic } from '../src/index.js';
+
+const message = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const evenGame = () => {
-   for (let i = 0; i < 3; i += 1) {
-      console.log('Answer "yes" if the number is even, otherwise answer "no".');
-      let randomNumber = generateRandomNumber(10);
-      console.log(randomNumber);
-      let userAnswer = readlineSync.question('Your answer: ');
-      let rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-      checkAnswer(userAnswer, rightAnswer);
-   }
-   console.log('Congratulations, ' + userName + '!');
+   const randomNumber = generateRandomNumber(10);
+   const task = randomNumber;
+   let rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
+   return [task, rightAnswer];
 }
 
-evenGame();
+gameLogic(message, evenGame);
 export default evenGame;

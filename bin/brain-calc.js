@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { generateRandomNumber, checkAnswer, userName } from '../src/index.js';
+import { generateRandomNumber, gameLogic } from '../src/index.js';
+
+const message = 'What is the result of the expression?';
 
 const calcGame = () => {
    for (let i = 0; i < 3; i += 1) {
-      console.log('What is the result of the expression?');
       let randomNumber1 = generateRandomNumber(10);
       let randomNumber2 = generateRandomNumber(10);
       let randomNumber3 = generateRandomNumber(3);
@@ -24,12 +24,10 @@ const calcGame = () => {
             rightAnswer = randomNumber1 * randomNumber2;
             break;
       }
-      console.log(`${randomNumber1} ${randomMathOperation} ${randomNumber2}`);
-      let userAnswer = readlineSync.question('Your answer: ');
-      checkAnswer(Number(userAnswer), rightAnswer);
+      const task = `${randomNumber1} ${randomMathOperation} ${randomNumber2}`;
+      return [task, rightAnswer];
    }
-   console.log('Congratulations, ' + userName + '!');
 }
 
-calcGame()
+gameLogic(message, calcGame);
 export default calcGame;
