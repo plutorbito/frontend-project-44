@@ -1,14 +1,5 @@
 #!/usr/bin/env node
-import { generateRandomNumber, gameLogic } from '../src/index.js';
 
-const message = 'Answer "yes" if the number is even, otherwise answer "no".';
+import evenGame from "../src/games/brain-even-logic.js";
 
-const evenGame = () => {
-   const randomNumber = generateRandomNumber(10);
-   const task = randomNumber;
-   let rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-   return [task, rightAnswer];
-}
-
-gameLogic(message, evenGame);
-export default evenGame;
+evenGame();
