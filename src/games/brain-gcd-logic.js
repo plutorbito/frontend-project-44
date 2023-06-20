@@ -3,7 +3,6 @@ import { generateRandomNumber, gameLogic } from '../index.js';
 const message = 'Find the greatest common divisor of given numbers.';
 
 const gcdGame = () => {
-   for (let i = 0; i < 3; i += 1) {
       let randomNumber1 = generateRandomNumber(10);
       let randomNumber2 = generateRandomNumber(10);
       const task = `${randomNumber1}  ${randomNumber2}`;
@@ -14,7 +13,6 @@ const gcdGame = () => {
          }
       }
       return [task, rightAnswer];
-   }
 }
 
 gameLogic(message, gcdGame);
