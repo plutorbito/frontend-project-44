@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 const greeting = () => {
       console.log('Welcome to the Brain Games!');
       let greetingUserName = readlineSync.question('May I have your name? ');
-      console.log('Hi ' + greetingUserName + '!');
+      console.log('Hello, ' + greetingUserName + '!');
       return greetingUserName;
    }
    
@@ -19,7 +19,7 @@ const gameLogic = (message, taskAndRightAnswer) => {
    for (let i = 0; i < 3; i += 1) {
       console.log(message);
       const [task, rightAnswer] = taskAndRightAnswer();
-      console.log(task);
+      console.log(`Question: ${task}`);
       const userAnswer = readlineSync.question('Your answer: ');
       if (String(rightAnswer) === String(userAnswer)) {
          console.log('Correct');
