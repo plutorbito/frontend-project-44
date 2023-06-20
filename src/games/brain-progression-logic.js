@@ -11,7 +11,7 @@ const progressionGame = () => {
     numbersArr.push(i);
   }
   const rightAnswer = numbersArr[missingItem];
-  numbersArr[missingItem] = '...';
+  numbersArr[missingItem] = '..';
   const task = numbersArr.join(' ');
   return [task, rightAnswer];
 };
