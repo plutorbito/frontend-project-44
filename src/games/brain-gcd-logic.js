@@ -8,12 +8,12 @@ const gcdGame = () => {
   const task = `${randomNumber1} ${randomNumber2}`;
   let rightAnswer;
   for (let divisor = 1; divisor <= Math.min(randomNumber1, randomNumber2); divisor += 1) {
-      if (randomNumber1 % divisor === 0 && randomNumber2 % divisor === 0) {
-    rightAnswer = divisor;
-  }
+    if (randomNumber1 % divisor === 0 && randomNumber2 % divisor === 0) {
+      rightAnswer = divisor;
     }
-return [task, rightAnswer];
-  };
+  }
+  return [task, rightAnswer];
+};
 
 gameLogic(message, gcdGame);
 export default gcdGame;
