@@ -26,4 +26,4 @@ const runGameLogic = (message, getTaskAndRightAnswer) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { runGameLogic };
+export default runGameLogic;

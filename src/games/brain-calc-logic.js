@@ -1,5 +1,5 @@
-import { runGameLogic } from '../index.js';
-import { generateRandomNumber } from '../random-number.js';
+import runGameLogic from '../index.js';
+import generateRandomNumber from '../random-number.js';
 
 const message = 'What is the result of the expression?';
 
@@ -27,7 +27,7 @@ const runCalcGame = () => {
   const randomNumber3 = generateRandomNumber(3-1);
   const mathOpetors = ['+', '-', '*'];
   const randomMathOperation = mathOpetors[randomNumber3];
-  let rightAnswer = getRightAnswer(randomNumber1, randomNumber2, randomMathOperation);
+  const rightAnswer = getRightAnswer(randomNumber1, randomNumber2, randomMathOperation);
   const task = `${randomNumber1} ${randomMathOperation} ${randomNumber2}`;
   return [task, String(rightAnswer)];
 };

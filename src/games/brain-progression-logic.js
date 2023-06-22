@@ -1,5 +1,5 @@
-import { runGameLogic } from '../index.js';
-import { generateRandomNumber } from '../random-number.js';
+import runGameLogic from '../index.js';
+import generateRandomNumber from '../random-number.js';
 
 const message = 'What number is missing in the progression?';
 
