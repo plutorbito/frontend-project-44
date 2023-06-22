@@ -24,7 +24,7 @@ const getRightAnswer = (randomNumber1, randomNumber2, randomMathOperation) => {
 const runCalcGame = () => {
   const randomNumber1 = generateRandomNumber(10);
   const randomNumber2 = generateRandomNumber(10);
-  const randomNumber3 = generateRandomNumber(3-1);
+  const randomNumber3 = generateRandomNumber(3 - 1);
   const mathOpetors = ['+', '-', '*'];
   const randomMathOperation = mathOpetors[randomNumber3];
   const rightAnswer = getRightAnswer(randomNumber1, randomNumber2, randomMathOperation);
