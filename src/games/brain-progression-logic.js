@@ -1,21 +1,25 @@
-import { generateRandomNumber, gameLogic } from '../index.js';
+import { runGameLogic } from '../index.js';
+import { generateRandomNumber } from '../random-number.js';
 
 const message = 'What number is missing in the progression?';
 
-const progressionGame = () => {
-  const progression = generateRandomNumber(10);
+const getProgression = (firstItem, progressionItem) => {
+  const arr = [];
+  for (let i = firstItem; arr.length < 10; i += progressionItem) {
+    arr.push(i);
+  }
+  return arr;
+};
+
+const runProgressionGame = () => {
+  const progressionItem = generateRandomNumber(10);
   const firstItem = generateRandomNumber(10);
   const missingItem = generateRandomNumber(9);
-  const numbersArr = [];
-  for (let i = firstItem; numbersArr.length < 10; i += progression) {
-    numbersArr.push(i);
-  }
+  const numbersArr = getProgression(firstItem, progressionItem);
   const rightAnswer = numbersArr[missingItem];
   numbersArr[missingItem] = '..';
   const task = numbersArr.join(' ');
-  return [task, rightAnswer];
+  return [task, String(rightAnswer)];
 };
 
-gameLogic(message, progressionGame);
-
-export default progressionGame;
+export default () => runGameLogic(message, runProgressionGame);

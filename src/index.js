@@ -7,19 +7,16 @@ const greeting = () => {
   return greetingUserName;
 };
 
-const userName = greeting();
-
-// Случайное число
-const generateRandomNumber = (max) => Math.trunc(Math.random() * max) + 1;
-
 // Логика игры
-const gameLogic = (message, taskAndRightAnswer) => {
-  for (let i = 0; i < 3; i += 1) {
+const runGameLogic = (message, getTaskAndRightAnswer) => {
+  const userName = greeting();
+  const numberOfRounds = 3;
+  for (let i = 0; i < numberOfRounds; i += 1) {
     console.log(message);
-    const [task, rightAnswer] = taskAndRightAnswer();
+    const [task, rightAnswer] = getTaskAndRightAnswer();
     console.log(`Question: ${task}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (String(rightAnswer) === String(userAnswer)) {
+    if (rightAnswer === userAnswer) {
       console.log('Correct');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!)`);
@@ -29,4 +26,4 @@ const gameLogic = (message, taskAndRightAnswer) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { userName, gameLogic, generateRandomNumber };
+export { runGameLogic };

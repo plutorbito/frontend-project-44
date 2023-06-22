@@ -1,13 +1,14 @@
-import { generateRandomNumber, gameLogic } from '../index.js';
+import { runGameLogic } from '../index.js';
+import { generateRandomNumber } from '../random-number.js';
 
 const message = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const evenGame = () => {
-  const randomNumber = generateRandomNumber(10);
-  const task = randomNumber;
-  const rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-  return [task, rightAnswer];
+const isEven = (num) => (num % 2 === 0);
+
+const runEvenGame = () => {
+  const task = generateRandomNumber(10);
+  const rightAnswer = isEven(task) ? 'yes' : 'no';
+  return [task, String(rightAnswer)];
 };
 
-gameLogic(message, evenGame);
-export default evenGame;
+export default () => runGameLogic(message, runEvenGame);
