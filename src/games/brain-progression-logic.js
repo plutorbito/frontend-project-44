@@ -1,5 +1,5 @@
 import runGameLogic from '../index.js';
-import generateRandomNumber from '../random-number.js';
+import { generateRandomNumber, maxNumber } from '../random-number.js';
 
 const message = 'What number is missing in the progression?';
 
@@ -12,9 +12,9 @@ const getProgression = (firstItem, progressionItem) => {
 };
 
 const runProgressionGame = () => {
-  const progressionItem = generateRandomNumber(10);
-  const firstItem = generateRandomNumber(10);
-  const missingItem = generateRandomNumber(9);
+  const progressionItem = generateRandomNumber(maxNumber);
+  const firstItem = generateRandomNumber(maxNumber);
+  const missingItem = generateRandomNumber(maxNumber - 1);
   const numbersArr = getProgression(firstItem, progressionItem);
   const rightAnswer = numbersArr[missingItem];
   numbersArr[missingItem] = '..';

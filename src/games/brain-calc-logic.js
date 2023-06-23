@@ -1,31 +1,26 @@
 import runGameLogic from '../index.js';
-import generateRandomNumber from '../random-number.js';
+import { generateRandomNumber, maxNumber } from '../random-number.js';
 
 const message = 'What is the result of the expression?';
+const mathOpetors = ['+', '-', '*'];
 
 const getRightAnswer = (randomNumber1, randomNumber2, randomMathOperation) => {
-  let result;
   switch (randomMathOperation) {
     case '+':
-      result = randomNumber1 + randomNumber2;
-      break;
+      return randomNumber1 + randomNumber2;
     case '-':
-      result = randomNumber1 - randomNumber2;
-      break;
+      return randomNumber1 - randomNumber2;
     case '*':
-      result = randomNumber1 * randomNumber2;
-      break;
+      return randomNumber1 * randomNumber2;
     default:
-      console.log('wrong');
+      throw new Error(`Unknown math operation: '${randomMathOperation}'!`);
   }
-  return result;
 };
 
 const runCalcGame = () => {
-  const randomNumber1 = generateRandomNumber(10);
-  const randomNumber2 = generateRandomNumber(10);
-  const randomNumber3 = generateRandomNumber(3 - 1);
-  const mathOpetors = ['+', '-', '*'];
+  const randomNumber1 = generateRandomNumber(maxNumber);
+  const randomNumber2 = generateRandomNumber(maxNumber);
+  const randomNumber3 = generateRandomNumber(mathOpetors.length - 1);
   const randomMathOperation = mathOpetors[randomNumber3];
   const rightAnswer = getRightAnswer(randomNumber1, randomNumber2, randomMathOperation);
   const task = `${randomNumber1} ${randomMathOperation} ${randomNumber2}`;

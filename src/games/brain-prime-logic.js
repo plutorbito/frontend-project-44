@@ -1,5 +1,5 @@
 import runGameLogic from '../index.js';
-import generateRandomNumber from '../random-number.js';
+import { generateRandomNumber, maxNumber } from '../random-number.js';
 
 const message = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -16,7 +16,7 @@ const isPrime = (num) => {
 };
 
 const runPrimeGame = () => {
-  const task = generateRandomNumber(10);
+  const task = generateRandomNumber(maxNumber);
   const rightAnswer = isPrime(task) ? 'yes' : 'no';
   return [task, String(rightAnswer)];
 };
